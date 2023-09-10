@@ -1,3 +1,103 @@
+/*EJERCICIO N°1*/
+function CalculadoraEdad()
+{
+    let fechaNacimiento = prompt("ingresa tu fecha de nacimiento")
+    const fechaActual = new Date();
+    const año = fechaActual.getFullYear();
+    const mes = fechaActual.getMonth() + 1;
+    const dia = fechaActual.getDate();
+    fechaNacimiento = fechaNacimiento.split('-')
+    const añoNac = parseInt(fechaNacimiento[0]);
+    const mesNac = parseInt(fechaNacimiento[1]);
+    const diaNac = parseInt(fechaNacimiento[2]);
+    let edad;
+    if(mes == mesNac)
+    {
+        if(dia > diaNac)
+        {
+            edad = año - añoNac;
+        }
+        else
+        {
+            edad = año - añoNac - 1;
+        }
+    }
+    else if (mes < mesNac)
+    {
+        edad = año - añoNac - 1;
+    }
+    else
+    {
+        edad = año - añoNac;
+    }
+    return edad;
+}
+console.log(CalculadoraEdad());
+/*EJERCICIO N°2*/
+
+function TirandoFruta()
+{
+    const frutaElegida = prompt("Que fruta se le ocurre ahora mismo"); 
+    let frutas = ["manzana", "banana", "naranja", "uva", "mandarina", "kiwi", "sandia", "mango", "pera", "frutilla"];
+    const fruta = frutas.find(frutita => frutita == frutaElegida);
+    if(fruta != null)
+    {
+        console.log(`Sí, tenemos ${frutaElegida}!`);
+    }
+    else
+    {
+        console.log(`No, no tenemos ${frutaElegida}`);
+    }
+
+}
+TirandoFruta();
+/*EJERCICIO N°3*/
+// A
+console.log(10 == '10'); //true
+//B
+console.log(1 === '1' ); //false. Aunque tienen son el mismo numero, no son del mismo tipo, 1 en un tipo numero y '1' es un tipo string
+//C
+console.log(typeof 10.6); //number
+//D
+console.log(1 == true); //true, es como en sql, 0 hace referencia a false y 1 a true.
+/*EJERCICIO N°4*/
+function yoObjeto() 
+
+{
+    const Ciudad = 
+    {
+        ciudad : "CABA",
+        fechaFundacion : '1580-06-11',
+        poblacion : 3120612,
+        extension : '200 Km²'
+    }
+    for(let propiedades in Ciudad)
+    {
+        console.log(`${propiedades} : ${Ciudad[propiedades]}`)
+    }
+}
+yoObjeto();
+
+/*EJERCICIO N°5*/
+function dobleElementos(arraynumeros)
+{
+    let arrayNumerosNuevo = [];
+    for(let numeros of arraynumeros)
+    {
+        arrayNumerosNuevo.push(numeros);
+        arrayNumerosNuevo.push(numeros);
+        console.log(numeros)
+    }
+    console.log(arrayNumerosNuevo);
+}
+dobleElementos([1,2,4]); 
+//si usamos 'for in', el arraynumeros se veria [0:1,1:2,2:4]
+//Donde los primeros numeros antes de los : son la posicion. Por ende si ponemos console.log
+//numeros, nos daria 0 , 1 y 2 
+                                        //****//
+//si usamos 'for of', el arraynuermos se veria [1,2,4]
+//Por ende si ponemos console.log numeros, nos daria 1 , 2 y 4. Seria como un foreach de c#
+/*EJERCICIO N°6*/
 function trianguloDeArteriscos()
 {
     const altura = 5;
