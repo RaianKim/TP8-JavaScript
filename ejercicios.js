@@ -1,6 +1,38 @@
 /*EJERCICIO N°1*/
 function CalculadoraEdad()
 {
+    /*    const fechaActual = new Date();
+    const año = fechaActual.getFullYear();
+    const mes = fechaActual.getMonth() + 1;
+    const dia = fechaActual.getDate();
+    const fechaNacimiento = document.getElementById("fecha")
+    fecNac = fechaNacimiento.value.toString().split("-")
+    const añoNac = fecNac[0];
+    const mesNac = fecNac[1];
+    const diaNac = fecNac[2];
+    let edad;
+    if(mes == mesNac)
+    {
+        if(dia > diaNac)
+        {
+            edad = año - añoNac;
+        }
+        else
+        {
+            edad = año - añoNac - 1;
+        }
+    }
+    else if (mes < mesNac)
+    {
+        edad = año - añoNac - 1;
+    }
+    else
+    {
+        edad = año - añoNac;
+    }
+    const nombreUsuario = document.getElementById("nombre")
+    let resultado = document.getElementById("aniosUsuario");
+    resultado.innerHTML = `Hola ${nombreUsuario.value}, tenes ${edad} años!`;*/ 
     let fechaNacimiento = prompt("ingresa tu fecha de nacimiento")
     const fechaActual = new Date();
     const año = fechaActual.getFullYear();
@@ -125,3 +157,16 @@ function trianguloDeArteriscos2()
     }
 }
 trianguloDeArteriscos2();
+/*EJERCICIO N°7*/
+function mostrarRespuestas()
+{
+    const cadenaDeNombres = document.getElementById(nombrecadena)
+    const cadNom = cadenaDeNombres.value.split(",")
+    let nuevaCadena = {}
+    for (const nombre of cadNom) {
+        if(nombre.toUpperCase().startsWith('A'))
+        {
+            nuevaCadena.push(nombre);
+        }
+    }
+}
