@@ -7,15 +7,64 @@
     <script src="ejercicios.js"></script>
 </head>
 <body>
-    <!-- <label for="nombre">Ingrese su nombre</label>
-    <input type="text" id="nombre">
-    <label for="fecha">Fecha de nacimiento:</label>
-    <input type="date" id="fecha">
-    <button onclick="CalculadoraEdad()">calcularEdad</button>
-    <h1 id="aniosUsuario"></h1>-->
-    <label for="nombrecadena">Ingrese una cadena de nombres</label>
-    <input type="text">
-    <button onclick=""></button>
-    <h1 id="cadena"></h1>
+        <!--Ejercicio N°1-->
+        <!-- <label for="nombre">Ingrese su nombre</label>
+        <input type="text" id="nombre">
+        <label for="fecha">Fecha de nacimiento:</label>
+        <input type="date" id="fecha">
+        <button onclick="CalculadoraEdad()">calcularEdad</button>
+        <h1 id="aniosUsuario"></h1>-->
+
+        <!-- Ejercicio N°7: Nombres con 'A' -->
+        <div>
+            <h2>Ejemplo 7: Nombres con 'A'</h2>
+            <label for="namesInput">Ingresa una lista de nombres separados por coma:</label>
+            <input type="text" id="namesInput">
+            <button id="filterNamesBtn" onclick="filterNamesWithA()">Mostrar nombres con 'A'</button>
+
+            <p id="filteredNames"></p>
+        </div>
+    
+        <!-- Ejercicio N°8: Reemplazar Palabras -->
+        <div>
+            <h2>Ejemplo 8: Reemplazar Palabras</h2>
+            <label for="textInput">Ingresa una cadena de texto:</label>
+            <input type="text" id="textInput">
+            <label for="wordToReplace">Palabra a reemplazar:</label>
+            <input type="text" id="wordToReplace">
+            <label for="replacementWord">Palabra de reemplazo:</label>
+            <input type="text" id="replacementWord">
+            <button id="replaceWordsBtn" onclick="replaceWords()">Reemplazar</button>
+            <p id="replacedText"></p>
+        </div>
+    
+        <!-- Ejercicio N°9: Cortar texto -->
+        <div>
+            <h2>Ejemplo 9: Cortar Texto</h2>
+            <label for="textToCut">Ingresa una cadena de texto:</label>
+            <input type="text" id="textToCut">
+            <label for="charactersToKeep">Número de caracteres a mantener:</label>
+            <input type="number" id="charactersToKeep">
+            <button id="cutTextBtn" onclick="cutText()">Cortar</button>
+            <p id="cutResult"></p>
+        </div>
+    
+        <!-- Ejercicio N°10: String con separador -->
+        <div>
+            <h2>Ejemplo 10: String con Separador</h2>
+            <label for="elementsInput">Ingresa una lista de elementos separados por coma:</label>
+            <input type="text" id="elementsInput">
+            <button id="createStringBtn" onclick="createStringWithSeparator()">Crear String</button>
+            <p id="stringWithSeparator"></p>
+        </div>
+    
+        <!-- Ejercicio N°11: Calculadora de Recaudación -->
+        <div>
+            <h2>Ejemplo 11: Calculadora de Recaudación</h2>
+            <label for="ordersInput">Ingresa los pedidos en el formato 'nombre:total' separados por coma:</label>
+            <input type="text" id="ordersInput" placeholder="Pizza:15.50">
+            <button id="calculateTotalBtn" onclick="calculateTotalRevenue()">Calcular Recaudación</button>
+            <p id="totalRevenue"></p>
+        </div>
 </body>
 </html>

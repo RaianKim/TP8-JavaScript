@@ -122,13 +122,15 @@ function dobleElementos(arraynumeros)
     }
     console.log(arrayNumerosNuevo);
 }
-dobleElementos([1,2,4]); 
+dobleElementos([1,2,4]);
+
 //si usamos 'for in', el arraynumeros se veria [0:1,1:2,2:4]
 //Donde los primeros numeros antes de los : son la posicion. Por ende si ponemos console.log
 //numeros, nos daria 0 , 1 y 2 
                                         //****//
-//si usamos 'for of', el arraynuermos se veria [1,2,4]
+//si usamos 'for of', el arraynuremos se veria [1,2,4]
 //Por ende si ponemos console.log numeros, nos daria 1 , 2 y 4. Seria como un foreach de c#
+
 /*EJERCICIO N°6*/
 function trianguloDeArteriscos()
 {
@@ -158,15 +160,41 @@ function trianguloDeArteriscos2()
 }
 trianguloDeArteriscos2();
 /*EJERCICIO N°7*/
-function mostrarRespuestas()
-{
-    const cadenaDeNombres = document.getElementById(nombrecadena)
-    const cadNom = cadenaDeNombres.value.split(",")
-    let nuevaCadena = {}
-    for (const nombre of cadNom) {
-        if(nombre.toUpperCase().startsWith('A'))
-        {
-            nuevaCadena.push(nombre);
-        }
+function filterNamesWithA() {
+    const namesInput = document.getElementById("namesInput").value;
+    const namesArray = namesInput.split(",");
+    const filteredNames = namesArray.filter(name => name.toLowerCase().startsWith('a'));
+    document.getElementById("filteredNames").innerHTML = filteredNames;
+}
+/*EJERCICIO N°8*/
+function replaceWords() {
+    const textInput = document.getElementById("textInput").value;
+    const wordToReplace = document.getElementById("wordToReplace").value;
+    const replacementWord = document.getElementById("replacementWord").value;
+    document.getElementById("replacedText").innerHTML = textInput.replace(wordToReplace,replacementWord);
+}
+/*EJERCICIO N°9*/
+function cutText() {
+    const textToCut = document.getElementById("textToCut").value;
+    const charactersToKeep = document.getElementById("charactersToKeep").value;
+    const cutResult = textToCut.slice(0, charactersToKeep);
+    document.getElementById("cutResult").innerHTML = cutResult;
+}
+/*EJERCICIO N°10*/
+function createStringWithSeparator() {
+    const elementsInput = document.getElementById("elementsInput").value;
+    const elementsArray = elementsInput.split(",");
+    const stringWithSeparator = elementsArray.join(" - ");
+    document.getElementById("stringWithSeparator").innerHTML = stringWithSeparator;
+}
+/*EJERCICIO N°11*/
+function calculateTotalRevenue() {
+    const ordersInput = document.getElementById("ordersInput").value;
+    const ordersArray = ordersInput.split(",");
+    let totalRevenue = 0;
+    for (const order of ordersArray) {
+        const [name, total] = order.split(":");
+        totalRevenue += parseFloat(total);
     }
+    document.getElementById("totalRevenue").innerHTML = "Recaudación Total: $" + totalRevenue.toFixed(2);
 }
