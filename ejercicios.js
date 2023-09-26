@@ -33,7 +33,7 @@ function CalculadoraEdad()
     const nombreUsuario = document.getElementById("nombre")
     let resultado = document.getElementById("aniosUsuario");
     resultado.innerHTML = `Hola ${nombreUsuario.value}, tenes ${edad} años!`;*/ 
-    let fechaNacimiento = prompt("ingresa tu fecha de nacimiento")
+    let fechaNacimiento = prompt("ingresa tu fecha de nacimiento || AAAA-MM-DD ")
     const fechaActual = new Date();
     const año = fechaActual.getFullYear();
     const mes = fechaActual.getMonth() + 1;
@@ -69,7 +69,8 @@ console.log(CalculadoraEdad());
 
 function TirandoFruta()
 {
-    const frutaElegida = prompt("Que fruta se le ocurre ahora mismo"); 
+    let frutaElegida = prompt("Que fruta se le ocurre ahora mismo");
+    frutaElegida = frutaElegida.toLowerCase();
     let frutas = ["manzana", "banana", "naranja", "uva", "mandarina", "kiwi", "sandia", "mango", "pera", "frutilla"];
     const fruta = frutas.find(frutita => frutita == frutaElegida);
     if(fruta != null)
@@ -132,6 +133,7 @@ dobleElementos([1,2,4]);
 //Por ende si ponemos console.log numeros, nos daria 1 , 2 y 4. Seria como un foreach de c#
 
 /*EJERCICIO N°6*/
+/*EJERCICIO A*/
 function trianguloDeArteriscos()
 {
     const altura = 5;
@@ -145,6 +147,7 @@ function trianguloDeArteriscos()
         console.log(aste.toString());
     }
 }
+/*EJERCICIO B*/
 trianguloDeArteriscos();
 function trianguloDeArteriscos2()
 {
@@ -196,5 +199,5 @@ function calculateTotalRevenue() {
         const [name, total] = order.split(":");
         totalRevenue += parseFloat(total);
     }
-    document.getElementById("totalRevenue").innerHTML = "Recaudación Total: $" + totalRevenue.toFixed(2);
+    document.getElementById("totalRevenue").innerHTML = "Recaudación Total: $" + totalRevenue;
 }
