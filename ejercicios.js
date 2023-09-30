@@ -33,7 +33,8 @@ function CalculadoraEdad()
     const nombreUsuario = document.getElementById("nombre")
     let resultado = document.getElementById("aniosUsuario");
     resultado.innerHTML = `Hola ${nombreUsuario.value}, tenes ${edad} años!`;*/ 
-    let fechaNacimiento = prompt("ingresa tu fecha de nacimiento || AAAA-MM-DD ")
+    let fechaNacimiento = prompt("ingresa tu fecha de nacimiento || AAAA-MM-DD ");
+    let nombre = prompt("ingresa su nombre");
     const fechaActual = new Date();
     const año = fechaActual.getFullYear();
     const mes = fechaActual.getMonth() + 1;
@@ -62,9 +63,8 @@ function CalculadoraEdad()
     {
         edad = año - añoNac;
     }
-    return edad;
+    document.getElementById("Eje1").innerHTML = `Hola ${nombre}, tenes ${edad}`;
 }
-console.log(CalculadoraEdad());
 /*EJERCICIO N°2*/
 
 function TirandoFruta()
@@ -75,55 +75,96 @@ function TirandoFruta()
     const fruta = frutas.find(frutita => frutita == frutaElegida);
     if(fruta != null)
     {
-        console.log(`Sí, tenemos ${frutaElegida}!`);
+        document.getElementById("Eje2").innerHTML = `Si, tenemos ${fruta}`;
     }
     else
     {
-        console.log(`No, no tenemos ${frutaElegida}`);
+        document.getElementById("Eje2").innerHTML = `No, no tenemos ${fruta}`;
     }
-
+    
 }
-TirandoFruta();
 /*EJERCICIO N°3*/
-// A
-console.log(10 == '10'); //true
-//B
-console.log(1 === '1' ); //false. Aunque tienen son el mismo numero, no son del mismo tipo, 1 en un tipo numero y '1' es un tipo string
-//C
-console.log(typeof 10.6); //number
-//D
-console.log(1 == true); //true, es como en sql, 0 hace referencia a false y 1 a true.
+function CompDatTipo()
+{
+    // A //
+    document.getElementById("Eje3").innerHTML = `Cuando 10 == '10' da true`;
+    //true
+    // B //
+    document.getElementById("Eje3").insertAdjacentHTML('afterend',`<p>Cuando 1 === '1' da false</p>`);
+    //false. Aunque tienen son el mismo numero, no son del mismo tipo, 1 en un tipo numero y '1' es un tipo string
+    // C //
+    document.getElementById("Eje3").insertAdjacentHTML('afterend',`<p>Cuando hago typeof 10.6 da number</p>`);
+    //number
+    // D //
+    document.getElementById("Eje3").insertAdjacentHTML('afterend',`<p>Cuando 1 == true da true</p>`);
+    //true, es como en sql, 0 hace referencia a false y 1 a true.
+}
+
 /*EJERCICIO N°4*/
 function yoObjeto() 
 
 {
+    let CCiudad = prompt("Ingrese la ciudad");
+    let FechaFundacion = prompt("Ingrese la fecha de fundacion");
+    let Poblacion = prompt("Ingrese la poblacion");
+    let Extension = prompt("ingrese la extension");
+    //const Ciudad = 
+    //{
+        //ciudad : "CABA",
+        //fechaFundacion : '1580-06-11',
+        //poblacion : 3120612,
+        //extension : '200 Km²'
+    //}
     const Ciudad = 
     {
-        ciudad : "CABA",
-        fechaFundacion : '1580-06-11',
-        poblacion : 3120612,
-        extension : '200 Km²'
+        ciudad : CCiudad,
+        fechaFundacion : FechaFundacion
     }
+    Ciudad["poblacion"] = Poblacion;
+    Ciudad["extension"] = Extension;
+
     for(let propiedades in Ciudad)
     {
-        console.log(`${propiedades} : ${Ciudad[propiedades]}`)
+        document.getElementById("Eje4").insertAdjacentHTML('afterend',`<p>${propiedades} : ${Ciudad[propiedades]}</p>`);
     }
 }
-yoObjeto();
 
 /*EJERCICIO N°5*/
 function dobleElementos(arraynumeros)
 {
+    let arraynumerosaux = arraynumeros.split(',')
     let arrayNumerosNuevo = [];
-    for(let numeros of arraynumeros)
+    for(let numeros of arraynumerosaux)
     {
-        arrayNumerosNuevo.push(numeros);
-        arrayNumerosNuevo.push(numeros);
-        console.log(numeros)
+        let aux = parseInt(numeros);
+        arrayNumerosNuevo.push(aux*2);
     }
-    console.log(arrayNumerosNuevo);
+    document.getElementById("Eje5").insertAdjacentText('beforeend',`Array original:`);
+    for (let index = 0; index < arraynumerosaux.length; index++) {
+        if(index < arraynumerosaux.length-1)
+        {
+            document.getElementById("Eje5").insertAdjacentText('beforeend',`${arraynumerosaux[index]},`);
+        }
+        else
+        {
+            document.getElementById("Eje5").insertAdjacentText('beforeend',`${arraynumerosaux[index]}`);
+        }
+        
+    }
+    document.getElementById("Eje5").insertAdjacentHTML('beforeend',`<br>Array modificado:`);
+    for (let index = 0; index < arrayNumerosNuevo.length; index++) {
+        if(index < arrayNumerosNuevo.length-1)
+        {
+            document.getElementById("Eje5").insertAdjacentText('beforeend',`${arrayNumerosNuevo[index]},`);
+        }
+        else
+        {
+            document.getElementById("Eje5").insertAdjacentText('beforeend',`${arrayNumerosNuevo[index]}`);
+        }
+        
+    }
+
 }
-dobleElementos([1,2,4]);
 
 //si usamos 'for in', el arraynumeros se veria [0:1,1:2,2:4]
 //Donde los primeros numeros antes de los : son la posicion. Por ende si ponemos console.log
@@ -136,32 +177,30 @@ dobleElementos([1,2,4]);
 /*EJERCICIO A*/
 function trianguloDeArteriscos()
 {
-    const altura = 5;
+    let altura = prompt("Ingrese la altura");
     let arrayTriangulo1 = [];
-    for(let index = 1; index < altura+1; index++)
+    for(let index = 1; index <= altura; index++)
     {
         arrayTriangulo1.push('*'.repeat(index));
     }
-    for(let aste of arrayTriangulo1)
+    for(let asterisco of arrayTriangulo1)
     {
-        console.log(aste.toString());
+        document.getElementById("Eje6").insertAdjacentHTML('beforeend',`${asterisco}<br>`);
     }
 }
 /*EJERCICIO B*/
-trianguloDeArteriscos();
 function trianguloDeArteriscos2()
 {
-    const alturaTriangulo2 = 9;
+    const alturaTriangulo2 = prompt("Ingrese la altura");
     const aux = Math.round(alturaTriangulo2/(2))
     for (let i= 1; i <= aux; i++) {
         let linea;
         linea = '-'.repeat(aux-i);
         linea += '*'.repeat(alturaTriangulo2-(linea.length*2));
         linea += '-'.repeat(aux-i);
-        console.log(linea);
+        document.getElementById("Eje6.5").insertAdjacentHTML('beforeend',`${linea}<br>`)
     }
 }
-trianguloDeArteriscos2();
 /*EJERCICIO N°7*/
 function filterNamesWithA() {
     const namesInput = document.getElementById("namesInput").value;
